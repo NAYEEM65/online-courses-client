@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { VscMenu, VscChromeClose } from 'react-icons/vsc';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenu, setIsMenu] = useState(false);
@@ -7,21 +8,30 @@ const Navbar = () => {
         setIsMenu(!isMenu);
     };
     return (
-        <div className="bg-slate-500 py-2">
+        <div className="bg-slate-500 py-2 px-4">
             <div className="flex justify-between items-center relative">
-                <div>
+                <NavLink to="/">
                     <h2 className="text-3xl text-white">Logo</h2>
-                </div>
+                </NavLink>
                 {/* desktop menu */}
                 <ul className="md:flex hidden justify-center items-center gap-3 text-white">
-                    <li>Home</li>
+                    <li>
+                        {' '}
+                        <NavLink to="/">Home</NavLink>
+                    </li>
                     <li>Courses</li>
                     <li>About</li>
                     <li>Contact</li>
-                    <li>Login</li>
+                    <li>
+                        <NavLink to="/login">
+                            <span className="bg-blue-500 hover:bg-blue-600 py-2 px-3 rounded">
+                                Login
+                            </span>
+                        </NavLink>
+                    </li>
                 </ul>
                 {/* mobile menu */}
-                <div>
+                <div className="md:hidden flex">
                     {!isMenu ? (
                         <VscMenu
                             className="text-white text-2xl cursor-pointer"
@@ -41,9 +51,11 @@ const Navbar = () => {
                         <li>About</li>
                         <li>Contact</li>
                         <li>
-                            <button className="bg-blue-500 px-3 py-2 rounded w-auto hover:bg-blue-600">
-                                Login
-                            </button>
+                            <Link to="/login">
+                                <span className="bg-blue-500 hover:bg-blue-600 py-2 px-3 rounded">
+                                    Login
+                                </span>
+                            </Link>
                         </li>
                     </ul>
                 )}
