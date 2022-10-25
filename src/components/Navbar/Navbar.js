@@ -15,11 +15,14 @@ const Navbar = () => {
                 </NavLink>
                 {/* desktop menu */}
                 <ul className="md:flex hidden justify-center items-center gap-3 text-white">
-                    <li>
+                    <NavLink to="/">
                         {' '}
-                        <NavLink to="/">Home</NavLink>
-                    </li>
-                    <li>Courses</li>
+                        <li> Home</li>
+                    </NavLink>
+                    <NavLink to="/courses">
+                        {' '}
+                        <li>Courses</li>
+                    </NavLink>
                     <li>About</li>
                     <li>Contact</li>
                     <li>
