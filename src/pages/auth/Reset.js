@@ -6,6 +6,7 @@ import Loader from '../../components/Loader/Loader';
 
 const Reset = () => {
     const [isLoading, setIsLoading] = useState(false);
+
     return (
         <>
             {isLoading && <Loader />}

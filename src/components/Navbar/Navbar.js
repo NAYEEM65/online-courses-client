@@ -23,8 +23,23 @@ const Navbar = () => {
                         {' '}
                         <li>Courses</li>
                     </NavLink>
-                    <li>About</li>
-                    <li>Contact</li>
+                    <NavLink to="/about">
+                        <li>About</li>
+                    </NavLink>
+
+                    <NavLink to="/blog">
+                        {' '}
+                        <li>Blog</li>
+                    </NavLink>
+
+                    <NavLink to="/faq">
+                        {' '}
+                        <li>Faq</li>
+                    </NavLink>
+                    <NavLink to="/contact">
+                        {' '}
+                        <li>Contact</li>
+                    </NavLink>
                     <li>
                         <NavLink to="/login">
                             <span className="bg-blue-500 hover:bg-blue-600 py-2 px-3 rounded">

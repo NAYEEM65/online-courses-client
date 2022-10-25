@@ -52,16 +52,18 @@ const Login = () => {
                         <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded">
                             Login
                         </button>
-                        <div className="text-left">
-                            <Link to="/reset">
-                                <span className="text-slate-700">Reset Password</span>
-                            </Link>
-                        </div>
-                        <div className="relative flex py-2 items-center">
-                            <div className="flex-grow border-t-2 border-slate-400"></div>
-                            <span className="flex-shrink mx-2 text-slate-700">OR</span>
-                            <div className="flex-grow border-t-2 border-slate-400"></div>
-                        </div>
+                    </form>
+                    <div className="text-left">
+                        <Link to="/reset">
+                            <span className="text-slate-700">Reset Password</span>
+                        </Link>
+                    </div>
+                    <div className="relative flex py-2 items-center">
+                        <div className="flex-grow border-t-2 border-slate-400"></div>
+                        <span className="flex-shrink mx-2 text-slate-700">OR</span>
+                        <div className="flex-grow border-t-2 border-slate-400"></div>
+                    </div>
+                    <div>
                         <div className="flex justify-between items-center gap-3">
                             <button className="bg-slate-600 cursor-pointer flex justify-center items-center gap-3 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded active:scale-90">
                                 <FcGoogle className="h-5 w-5 rounded-full bg-gray-50" /> Login With
@@ -71,7 +73,13 @@ const Login = () => {
                                 <AiFillGithub className="h-5 w-5 rounded-full" /> Login With Github
                             </button>
                         </div>
-                    </form>
+                        <span className="flex justify-start gap-2 pt-2 text-gray-600">
+                            <p>Don't have an account? </p>
+                            <Link to="/register">
+                                <span className="text-blue-600"> Register</span>
+                            </Link>
+                        </span>
+                    </div>
                 </div>
             </section>
         </>
