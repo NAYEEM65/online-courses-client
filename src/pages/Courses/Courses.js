@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useLoaderData, useParams } from 'react-router-dom';
 import RightSideNav from '../../components/Common/RightSideNav/RightSideNav';
+import ReactStars from 'react-rating-stars-component';
 
 const Courses = () => {
     const courses = useLoaderData();
@@ -27,9 +28,34 @@ const Courses = () => {
                                             <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                                                 {course.category}
                                             </h1>
-                                            <p className="leading-relaxed mb-3">
+                                            <p className="leading-relaxed">
                                                 {course.courseTitle?.slice(0, 55) + '...'}
                                             </p>
+                                            <div className="flex justify-start items-center gap-1">
+                                                <p className="font-semibold text-amber-600">
+                                                    {course.rating}
+                                                </p>
+                                                <ReactStars
+                                                    value={Number(course.rating)}
+                                                    edit={false}
+                                                    count={5}
+                                                    size={20}
+                                                    activeColor="#fb923c"
+                                                />
+                                                <p className=" text-sm">
+                                                    ({course.numberOfReview})
+                                                </p>
+                                            </div>
+                                            <div className="flex justify-start items-center gap-2">
+                                                <span className="font-semibold text-lg">
+                                                    ${course.regularPrice}
+                                                </span>
+                                                <span className="line-through">
+                                                    {' '}
+                                                    ${course.discountPrice}
+                                                </span>
+                                            </div>
+
                                             <div className="flex items-center flex-wrap ">
                                                 <NavLink
                                                     to={`/course/${course.id}`}
