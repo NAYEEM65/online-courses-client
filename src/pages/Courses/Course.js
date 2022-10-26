@@ -175,7 +175,7 @@ const Course = () => {
                                     Back to Courses
                                 </NavLink>
                                 <NavLink
-                                    to="/checkout"
+                                    to={`/checkout/${selectedCourses.id}`}
                                     className="text-white bg-indigo-600 inline-flex gap-2 items-center rounded px-3 py-2 md:mb-2 lg:mb-0"
                                 >
                                     <BsShieldLock /> Get Premium Access
