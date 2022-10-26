@@ -7,7 +7,33 @@ import Loader from '../Loader/Loader';
 
 const Navbar = () => {
     const [isMenu, setIsMenu] = useState(false);
+    const [themeSelected, setThemeSelected] = useState(false);
     const { user, logOut, isLoading, setIsLoading, setUser } = useContext(AuthContext);
+    const body = document.body;
+    const lightTheme = 'light';
+    const darkTheme = 'dark';
+    let theme;
+    if (localStorage) {
+        theme = localStorage.getItem('theme');
+    }
+    if (theme === lightTheme || theme === darkTheme) {
+        body.classList.add(theme);
+    } else {
+        body.classList.add(lightTheme);
+    }
+    const toggleTheme = (e) => {
+        setThemeSelected(!themeSelected);
+        if (theme === darkTheme) {
+            body.classList.replace(darkTheme, lightTheme);
+
+            localStorage.setItem('theme', 'light');
+            theme = lightTheme;
+        } else {
+            body.classList.replace(lightTheme, darkTheme);
+            localStorage.setItem('theme', 'dark');
+            theme = darkTheme;
+        }
+    };
     const navigate = useNavigate();
     const location = useLocation();
     const { pathname } = location;
@@ -33,7 +59,7 @@ const Navbar = () => {
     return (
         <>
             {isLoading && <Loader />}
-            <div className="bg-slate-700 py-2 px-4">
+            <div className="bg-slate-700 dark:bg-blue-500 py-2 px-4">
                 <div className="flex justify-between items-center relative">
                     <NavLink to="/">
                         <h2 className="text-3xl text-white">Logo</h2>
@@ -94,7 +120,7 @@ const Navbar = () => {
                                         alt={user?.displayName}
                                     />
                                     <button
-                                        className="bg-blue-500 hover:bg-blue-600 py-2 px-3 rounded"
+                                        className="bg-blue-500 dark:bg-slate-600 hover:bg-blue-600 py-2 px-3 rounded"
                                         onClick={handleLogOut}
                                     >
                                         Log out
@@ -106,6 +132,11 @@ const Navbar = () => {
                                     <Link to="/register">Register</Link>
                                 </span>
                             )}
+                        </li>
+                        <li>
+                            <button onClick={toggleTheme}>
+                                {theme === 'dark' ? 'light' : 'dark'}
+                            </button>
                         </li>
                     </ul>
                     {/* mobile menu */}
