@@ -110,29 +110,38 @@ const Navbar = () => {
                                 Contact
                             </NavLink>
                         </li>
-                        <li>
-                            {user?.uid ? (
-                                <span className="flex justify-between items-center gap-3">
-                                    <span>{user?.displayName}</span>
+                        {user?.uid ? (
+                            <div className="dropdown dropdown-end dropdown-hover">
+                                <label tabIndex={0} className="cursor-pointer ">
                                     <img
                                         src={user?.photoURL}
                                         className="h-8 w-8 rounded-full"
                                         alt={user?.displayName}
                                     />
-                                    <button
-                                        className="bg-blue-500 dark:bg-sky-800 dark:hover:bg-sky-900 hover:bg-blue-600 py-2 px-3 rounded"
-                                        onClick={handleLogOut}
-                                    >
-                                        Log out
-                                    </button>
-                                </span>
-                            ) : (
-                                <span className="flex justify-between items-center gap-3">
-                                    <Link to="/login">Login</Link>
-                                    <Link to="/register">Register</Link>
-                                </span>
-                            )}
-                        </li>
+                                </label>
+                                <ul
+                                    tabIndex={0}
+                                    className="dropdown-content menu p-2 shadow bg-base-100 dark:bg-slate-700 rounded-box w-52"
+                                >
+                                    <li>
+                                        <span className="text-slate-200">{user?.displayName}</span>
+                                    </li>
+                                    <li>
+                                        <button
+                                            className="bg-blue-500 dark:bg-sky-800 dark:hover:bg-sky-900 hover:bg-blue-600 py-2 px-3 rounded"
+                                            onClick={handleLogOut}
+                                        >
+                                            Log out
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        ) : (
+                            <span className="flex justify-between items-center gap-3">
+                                <Link to="/login">Login</Link>
+                                <Link to="/register">Register</Link>
+                            </span>
+                        )}
                         <li>
                             <button onClick={toggleTheme}>
                                 {theme === 'dark' ? (

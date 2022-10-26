@@ -11,6 +11,8 @@ import Faq from '../../components/Common/Faq/Faq';
 import Contact from '../../components/Common/Contact/Contact';
 import Courses from '../../pages/Courses/Courses';
 import Course from '../../pages/Courses/Course';
+import PrivateRoute from '../PrivateRoute/PrivateRoute';
+import CheckOut from '../../pages/CheckOut/CheckOut';
 
 export const routes = createBrowserRouter([
     {
@@ -24,6 +26,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
+                loader: () => fetch(`http://localhost:5000/courses`),
             },
             {
                 path: '/courses',
@@ -62,6 +65,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/reset',
                 element: <Reset />,
+            },
+            {
+                path: '/checkout',
+                element: (
+                    <PrivateRoute>
+                        <CheckOut />
+                    </PrivateRoute>
+                ),
             },
         ],
     },
