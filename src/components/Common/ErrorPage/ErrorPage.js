@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as NotFound } from '../../assets/notfound.svg';
+import { ReactComponent as NotFound } from '../../../assets/notfound.svg';
 import { useNavigate } from 'react-router-dom';
 const ErrorPage = () => {
     const navigate = useNavigate();

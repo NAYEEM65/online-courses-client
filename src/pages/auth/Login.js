@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import Loader from '../../components/Loader/Loader';
 import LoginImage from '../../assets/access-account.svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,6 +7,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { GithubProvider, GoogleProvider } from '../../firebase/config';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/Auth/AuthProvider';
+import Loader from '../../components/Common/Loader/Loader';
 const Login = () => {
     const { signIn, providerLogin, isLoading, setIsLoading } = useContext(AuthContext);
     const [isShowPass, setIsShowPass] = useState(false);

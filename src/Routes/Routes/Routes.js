@@ -4,12 +4,14 @@ import Login from '../../pages/auth/Login';
 import Register from '../../pages/auth/Register';
 import Reset from '../../pages/auth/Reset';
 import Home from '../../components/Home/Home';
-import Courses from '../../components/Courses/Courses';
 import About from '../../components/About/About';
 import Blog from '../../components/Blog/Blog';
-import Faq from '../../components/Faq/Faq';
-import Contact from '../../components/Contact/Contact';
-import ErrorPage from '../../components/ErrorPage/ErrorPage';
+import ErrorPage from '../../components/Common/ErrorPage/ErrorPage';
+import Faq from '../../components/Common/Faq/Faq';
+import Contact from '../../components/Common/Contact/Contact';
+import Courses from '../../pages/Courses/Courses';
+import CourseLayout from '../../Layout/Courses';
+
 export const routes = createBrowserRouter([
     {
         path: '*',
@@ -26,6 +28,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses />,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses`),
+            },
+            {
+                path: '/course',
+                element: <CourseLayout />,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses`),
             },
             {
                 path: '/about',

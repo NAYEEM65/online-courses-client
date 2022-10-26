@@ -1,9 +1,11 @@
 import React from 'react';
-import styles from '../../style';
+import Hero from '../Hero/Hero';
+import Footer from '../Common/Footer/Footer';
 const Home = () => {
     return (
-        <div className={`${styles.paddingY} ${styles.paddingX}`}>
-            <h1>THis is home section</h1>
+        <div>
+            <Hero />
+            <Footer />
         </div>
     );
 };

@@ -3,9 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import accessImage from '../../assets/access-account.svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import Loader from '../../components/Loader/Loader';
 import { useContext } from 'react';
 import { AuthContext } from '../../context/Auth/AuthProvider';
+import Loader from '../../components/Common/Loader/Loader';
 
 const Register = () => {
     const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);

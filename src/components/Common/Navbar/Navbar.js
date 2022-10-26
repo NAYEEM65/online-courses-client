@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import { VscMenu, VscChromeClose } from 'react-icons/vsc';
 import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../../context/Auth/AuthProvider';
+import { AuthContext } from '../../../context/Auth/AuthProvider';
 import Loader from '../Loader/Loader';
+import { BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
 
 const Navbar = () => {
     const [isMenu, setIsMenu] = useState(false);
@@ -41,8 +42,7 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsMenu(!isMenu);
     };
-    const activeClass = (state) =>
-        state.isActive ? `border-blue-600 text-slate-300 border-b-2` : '';
+    const activeClass = (state) => (state.isActive ? `border-white text-slate-300 border-b-2` : '');
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -59,7 +59,7 @@ const Navbar = () => {
     return (
         <>
             {isLoading && <Loader />}
-            <div className="bg-slate-700 dark:bg-blue-500 py-2 px-4">
+            <div className="bg-indigo-600 dark:shadow-lg dark:backdrop-blur-md  dark:bg-gray-800/90 py-2 px-4">
                 <div className="flex justify-between items-center relative">
                     <NavLink to="/">
                         <h2 className="text-3xl text-white">Logo</h2>
@@ -71,7 +71,7 @@ const Navbar = () => {
                                 to="/"
                                 className={
                                     splitLocation[1] === ''
-                                        ? 'border-blue-600 text-slate-300 border-b-2'
+                                        ? 'border-white text-slate-300 border-b-2'
                                         : ''
                                 }
                             >
@@ -120,7 +120,7 @@ const Navbar = () => {
                                         alt={user?.displayName}
                                     />
                                     <button
-                                        className="bg-blue-500 dark:bg-slate-600 hover:bg-blue-600 py-2 px-3 rounded"
+                                        className="bg-blue-500 dark:bg-sky-800 dark:hover:bg-sky-900 hover:bg-blue-600 py-2 px-3 rounded"
                                         onClick={handleLogOut}
                                     >
                                         Log out
@@ -135,7 +135,11 @@ const Navbar = () => {
                         </li>
                         <li>
                             <button onClick={toggleTheme}>
-                                {theme === 'dark' ? 'light' : 'dark'}
+                                {theme === 'dark' ? (
+                                    <BsFillMoonStarsFill className="cursor-pointer" />
+                                ) : (
+                                    <BsSunFill className="cursor-pointer" />
+                                )}
                             </button>
                         </li>
                     </ul>
@@ -161,10 +165,19 @@ const Navbar = () => {
                             <li>Contact</li>
                             <li>
                                 <Link to="/login">
-                                    <span className="bg-blue-500 hover:bg-blue-600 py-2 px-3 rounded">
+                                    <span className="bg-blue-500 dark:bg-slate-700 hover:bg-blue-600 py-2 px-3 rounded">
                                         Login
                                     </span>
                                 </Link>
+                            </li>
+                            <li>
+                                <button onClick={toggleTheme}>
+                                    {theme === 'dark' ? (
+                                        <BsFillMoonStarsFill className="cursor-pointer" />
+                                    ) : (
+                                        <BsSunFill className="cursor-pointer" />
+                                    )}
+                                </button>
                             </li>
                         </ul>
                     )}

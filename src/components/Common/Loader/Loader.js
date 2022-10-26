@@ -1,4 +1,4 @@
-import loaderImg from '../../assets/Blocks-1.4s-212px (1).svg';
+import loaderImg from '../../../assets/Blocks-1.4s-212px (1).svg';
 import ReactDOM from 'react-dom';
 
 const Loader = () => {

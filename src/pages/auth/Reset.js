@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import LoginImage from '../../assets/access-account.svg';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../components/Common/Loader/Loader';
 
 const Reset = () => {
     const [isLoading, setIsLoading] = useState(false);
