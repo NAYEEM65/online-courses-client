@@ -10,7 +10,7 @@ import ErrorPage from '../../components/Common/ErrorPage/ErrorPage';
 import Faq from '../../components/Common/Faq/Faq';
 import Contact from '../../components/Common/Contact/Contact';
 import Courses from '../../pages/Courses/Courses';
-import CourseLayout from '../../Layout/Courses';
+import Course from '../../pages/Courses/Course';
 
 export const routes = createBrowserRouter([
     {
@@ -28,12 +28,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses />,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses`),
+                loader: () => fetch(`http://localhost:5000/courses`),
             },
             {
-                path: '/course',
-                element: <CourseLayout />,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses`),
+                path: '/course/:id',
+                element: <Course />,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
             },
             {
                 path: '/about',
