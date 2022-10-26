@@ -3,11 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import accessImage from '../../assets/access-account.svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { auth } from '../../firebase/config';
 import Loader from '../../components/Loader/Loader';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/Auth/AuthProvider';
 
 const Register = () => {
+    const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
     const [isPassShow, setIsPassShow] = useState(false);
     const handlePassShow = () => {
         setIsPassShow(!isPassShow);
@@ -15,6 +16,7 @@ const Register = () => {
     const [isConfirmPassShow, setIsConfirmPassShow] = useState(false);
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
+    const [photoURL, setPhotoURL] = useState('');
     const [password, setPassword] = useState('');
     const [cPassword, setCPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -38,17 +40,14 @@ const Register = () => {
             toast.error('Please fill in your password');
         } else {
             setIsLoading(true);
-            createUserWithEmailAndPassword(auth, email, password)
+            createUser(email, password)
                 .then((result) => {
                     setIsLoading(false);
                     toast.success('Registration successful');
                     navigate('/login');
-                    console.log(result);
-                    updateProfile(auth.currentUser, {
-                        displayName: fullName,
-                        photoURL:
-                            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-                    }).then(() => {
+                    handleEmailVerification();
+                    toast.success('Please verify your email address.');
+                    handleUpdateUserProfile(fullName, photoURL).then(() => {
                         // Profile updated!
                         setIsLoading(false);
                         navigate('/login');
@@ -61,6 +60,21 @@ const Register = () => {
                 });
         }
     };
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL,
+        };
+
+        updateUserProfile(profile)
+            .then(() => {})
+            .catch((error) => console.error(error));
+    };
+
+    const handleEmailVerification = () => {
+        verifyEmail().then(() => {});
+    };
+
     return (
         <>
             {isLoading && <Loader />}
@@ -80,6 +94,16 @@ const Register = () => {
                                 className="rounded bg-gray-300 border-none"
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
+                            />
+                        </div>
+                        <div className="w-full inline-grid">
+                            <input
+                                type="text"
+                                required
+                                placeholder="Photo Url"
+                                className="rounded bg-gray-300 border-none"
+                                value={photoURL}
+                                onChange={(e) => setPhotoURL(e.target.value)}
                             />
                         </div>
                         <div className="w-full inline-grid">

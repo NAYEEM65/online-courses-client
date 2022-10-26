@@ -1,16 +1,77 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Loader from '../../components/Loader/Loader';
 import LoginImage from '../../assets/access-account.svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
 import { AiFillGithub } from 'react-icons/ai';
-
+import { GithubProvider, GoogleProvider } from '../../firebase/config';
+import { toast } from 'react-toastify';
+import { AuthContext } from '../../context/Auth/AuthProvider';
 const Login = () => {
-    const [isLoading, setIsLoading] = useState(false);
+    const { signIn, providerLogin, isLoading, setIsLoading } = useContext(AuthContext);
     const [isShowPass, setIsShowPass] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleShowPass = () => {
         setIsShowPass(!isShowPass);
+    };
+    const loginUser = (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        signIn(email, password)
+            .then((result) => {
+                // Signed in
+                const user = result.user;
+                console.log(user);
+                if (user.emailVerified) {
+                    navigate(from, { replace: true });
+                    setIsLoading(false);
+                    toast.success('Login successful');
+                } else {
+                    toast.error('Your email is not verified. Please verify your email address.');
+                }
+                // ...
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+                setIsLoading(false);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            });
+    };
+    const signinWithGoogle = () => {
+        providerLogin(GoogleProvider)
+            .then(() => {
+                toast.success('Login success');
+                navigate('/');
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+                setIsLoading(false);
+            });
+    };
+    const signinWithGithub = () => {
+        providerLogin(GithubProvider)
+            .then(() => {
+                toast.success('Login success');
+                navigate('/');
+                setIsLoading(false);
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorMessage = error.message;
+                toast.error(errorMessage);
+                setIsLoading(false);
+            });
     };
     return (
         <>
@@ -21,12 +82,14 @@ const Login = () => {
                 </div>
                 <div className="w-[36rem] p-10 text-center shadow-lg animate-slide-up">
                     <h2 className="text-3xl font-bold text-slate-700">Login</h2>
-                    <form className="flex flex-col mt-5 w-full gap-2">
+                    <form onSubmit={loginUser} className="flex flex-col mt-5 w-full gap-2">
                         <div className="w-full inline-grid">
                             <input
                                 type="email"
                                 required
                                 placeholder="Email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 className="rounded bg-slate-200 border-none"
                             />
                         </div>
@@ -35,6 +98,8 @@ const Login = () => {
                                 type={isShowPass ? 'text' : 'password'}
                                 required
                                 placeholder="Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 className="rounded bg-slate-200 border-none"
                             />
                             {isShowPass ? (
@@ -49,7 +114,10 @@ const Login = () => {
                                 />
                             )}
                         </div>
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded">
+                        <button
+                            type="submit"
+                            className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded"
+                        >
                             Login
                         </button>
                     </form>
@@ -65,11 +133,17 @@ const Login = () => {
                     </div>
                     <div>
                         <div className="flex justify-between items-center gap-3">
-                            <button className="bg-slate-600 cursor-pointer flex justify-center items-center gap-3 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded active:scale-90">
+                            <button
+                                onClick={signinWithGoogle}
+                                className="bg-slate-600 cursor-pointer flex justify-center items-center gap-3 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded active:scale-90"
+                            >
                                 <FcGoogle className="h-5 w-5 rounded-full bg-gray-50" /> Login With
                                 Google
                             </button>
-                            <button className="bg-slate-600 cursor-pointer flex justify-center items-center gap-3 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded active:scale-90">
+                            <button
+                                onClick={signinWithGithub}
+                                className="bg-slate-600 cursor-pointer flex justify-center items-center gap-3 text-white px-3 py-2 w-full transition duration-100 ease-in-out rounded active:scale-90"
+                            >
                                 <AiFillGithub className="h-5 w-5 rounded-full" /> Login With Github
                             </button>
                         </div>
