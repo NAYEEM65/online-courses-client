@@ -13,6 +13,7 @@ import Courses from '../../pages/Courses/Courses';
 import Course from '../../pages/Courses/Course';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import CheckOut from '../../pages/CheckOut/CheckOut';
+import Category from '../../pages/Category/Category';
 
 export const routes = createBrowserRouter([
     {
@@ -83,6 +84,12 @@ export const routes = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+            },
+            {
+                path: '/category/:id',
+                element: <Category />,
+                loader: ({ params }) =>
+                    fetch(`http://localhost:5000/courses-categories/${params.id}`),
             },
         ],
     },

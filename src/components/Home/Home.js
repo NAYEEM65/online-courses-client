@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../Hero/Hero';
-import Footer from '../Common/Footer/Footer';
 import { NavLink, useLoaderData } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
 const Home = () => {
@@ -112,7 +111,6 @@ const Home = () => {
                     </div>
                 </section>
             </div>
-            <Footer />
         </div>
     );
 };

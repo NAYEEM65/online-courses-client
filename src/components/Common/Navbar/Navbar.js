@@ -124,7 +124,9 @@ const Navbar = () => {
                                     className="dropdown-content menu p-2 shadow bg-base-100 dark:bg-slate-700 rounded-box w-52"
                                 >
                                     <li>
-                                        <span className="text-slate-200">{user?.displayName}</span>
+                                        <span className="dark:text-slate-200 text-slate-700">
+                                            {user?.displayName}
+                                        </span>
                                     </li>
                                     <li>
                                         <button
