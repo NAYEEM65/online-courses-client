@@ -41,7 +41,7 @@ const Register = () => {
         } else {
             setIsLoading(true);
             createUser(email, password)
-                .then((result) => {
+                .then(() => {
                     setIsLoading(false);
                     toast.success('Registration successful');
                     navigate('/login');

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { VscMenu, VscChromeClose } from 'react-icons/vsc';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../context/Auth/AuthProvider';
 import Loader from '../Loader/Loader';
@@ -9,9 +9,14 @@ const Navbar = () => {
     const [isMenu, setIsMenu] = useState(false);
     const { user, logOut, isLoading, setIsLoading, setUser } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const { pathname } = location;
+    const splitLocation = pathname.split('/');
     const toggleMenu = () => {
         setIsMenu(!isMenu);
     };
+    const activeClass = (state) =>
+        state.isActive ? `border-blue-600 text-slate-300 border-b-2` : '';
     const handleLogOut = () => {
         logOut()
             .then(() => {
@@ -28,38 +33,57 @@ const Navbar = () => {
     return (
         <>
             {isLoading && <Loader />}
-            <div className="bg-slate-500 py-2 px-4">
+            <div className="bg-slate-700 py-2 px-4">
                 <div className="flex justify-between items-center relative">
                     <NavLink to="/">
                         <h2 className="text-3xl text-white">Logo</h2>
                     </NavLink>
                     {/* desktop menu */}
                     <ul className="md:flex hidden justify-center items-center gap-3 text-white">
-                        <NavLink to="/">
-                            {' '}
-                            <li> Home</li>
-                        </NavLink>
-                        <NavLink to="/courses">
-                            {' '}
-                            <li>Courses</li>
-                        </NavLink>
-                        <NavLink to="/about">
-                            <li>About</li>
-                        </NavLink>
+                        <li>
+                            <NavLink
+                                to="/"
+                                className={
+                                    splitLocation[1] === ''
+                                        ? 'border-blue-600 text-slate-300 border-b-2'
+                                        : ''
+                                }
+                            >
+                                {' '}
+                                Home
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/courses" className={activeClass}>
+                                {' '}
+                                Courses
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/about" className={activeClass}>
+                                About
+                            </NavLink>
+                        </li>
 
-                        <NavLink to="/blog">
-                            {' '}
-                            <li>Blog</li>
-                        </NavLink>
+                        <li>
+                            <NavLink to="/blog" className={activeClass}>
+                                {' '}
+                                Blog
+                            </NavLink>
+                        </li>
 
-                        <NavLink to="/faq">
-                            {' '}
-                            <li>Faq</li>
-                        </NavLink>
-                        <NavLink to="/contact">
-                            {' '}
-                            <li>Contact</li>
-                        </NavLink>
+                        <li>
+                            <NavLink to="/faq" className={activeClass}>
+                                {' '}
+                                Faq
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/contact" className={activeClass}>
+                                {' '}
+                                Contact
+                            </NavLink>
+                        </li>
                         <li>
                             {user?.uid ? (
                                 <span className="flex justify-between items-center gap-3">
