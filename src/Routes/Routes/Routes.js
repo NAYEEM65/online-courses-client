@@ -4,7 +4,6 @@ import Login from '../../pages/auth/Login';
 import Register from '../../pages/auth/Register';
 import Reset from '../../pages/auth/Reset';
 import Home from '../../components/Home/Home';
-import About from '../../components/About/About';
 import Blog from '../../components/Blog/Blog';
 import ErrorPage from '../../components/Common/ErrorPage/ErrorPage';
 import Faq from '../../components/Common/Faq/Faq';
@@ -14,6 +13,7 @@ import Course from '../../pages/Courses/Course';
 import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import CheckOut from '../../pages/CheckOut/CheckOut';
 import Category from '../../pages/Category/Category';
+import UserDetails from '../../pages/auth/UserDetails';
 
 export const routes = createBrowserRouter([
     {
@@ -48,10 +48,6 @@ export const routes = createBrowserRouter([
 
                 loader: ({ params }) =>
                     fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses/${params.id}`),
-            },
-            {
-                path: '/about',
-                element: <About />,
             },
             {
                 path: '/blog',
@@ -94,6 +90,14 @@ export const routes = createBrowserRouter([
                     fetch(
                         `${process.env.REACT_APP_SERVER_BASE_URL}/courses-categories/${params.id}`,
                     ),
+            },
+            {
+                path: '/user',
+                element: (
+                    <PrivateRoute>
+                        <UserDetails />
+                    </PrivateRoute>
+                ),
             },
         ],
     },

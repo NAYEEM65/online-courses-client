@@ -38,17 +38,17 @@ const Register = () => {
             toast.error('Please fill in your email');
         } else if (!password) {
             toast.error('Please fill in your password');
-        } else {
+        }
+        if (password === cPassword && fullName && email && password) {
             setIsLoading(true);
             createUser(email, password)
                 .then(() => {
-                    setIsLoading(false);
-                    toast.success('Registration successful');
-                    navigate('/login');
-                    handleEmailVerification();
-                    toast.success('Please verify your email address.');
                     handleUpdateUserProfile(fullName, photoURL).then(() => {
                         // Profile updated!
+                        setIsLoading(false);
+                        toast.success('Registration successful');
+                        handleEmailVerification();
+                        toast.success('Please verify your email address.');
                         setIsLoading(false);
                         navigate('/login');
                     });
@@ -99,7 +99,6 @@ const Register = () => {
                         <div className="w-full inline-grid">
                             <input
                                 type="text"
-                                required
                                 placeholder="Photo Url"
                                 className="rounded bg-gray-300 border-none"
                                 value={photoURL}

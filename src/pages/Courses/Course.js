@@ -158,7 +158,7 @@ const Course = () => {
                 </div>
             </div>
 
-            <div className="bg-slate-100 dark:bg-slate-700 md:w-[55%] w-full">
+            <div className="bg-slate-100 mt-5 dark:bg-slate-700 md:w-[55%] w-full">
                 <div className="p-4 md:w-full">
                     <div className="h-full border-2 border-gray-200 dark:text-slate-200 border-opacity-60 rounded-lg overflow-hidden">
                         <img

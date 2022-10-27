@@ -10,6 +10,9 @@ const Home = () => {
             <div className=" w-full bg-slate-100 dark:bg-slate-700">
                 <section className="text-gray-600 dark:text-white body-font">
                     <div className="container px-5 p-5 mx-auto">
+                        <h2 className="text-3xl p-2 font-bold text-slate-900 border-b-2 mb-5  border-slate-800 dark:border-slate-300 dark:text-slate-200">
+                            Explore our courses
+                        </h2>
                         <div className="flex flex-wrap -m-4">
                             {courses?.map((course) => (
                                 <div className="p-4 md:w-1/3" key={course.id}>

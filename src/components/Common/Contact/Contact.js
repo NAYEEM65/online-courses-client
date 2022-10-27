@@ -3,6 +3,11 @@ import React from 'react';
 const Contact = () => {
     return (
         <section className="text-gray-600 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 body-font relative">
+            <div className="text-center w-[300px] mx-auto">
+                <h2 className="text-3xl p-2 ml-2  py-5 font-bold text-slate-900 border-b-2 mb-5  border-slate-800 dark:border-slate-300 dark:text-slate-200">
+                    Get in Touch
+                </h2>
+            </div>
             <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
                 <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
                     <iframe
@@ -10,10 +15,10 @@ const Contact = () => {
                         width="100%"
                         height="100%"
                         className="absolute inset-0 grayscale"
-                        frameborder="0"
+                        frameBorder="0"
                         title="map"
-                        marginheight="0"
-                        marginwidth="0"
+                        marginHeight="0"
+                        marginWidth="0"
                         scrolling="no"
                     ></iframe>
                     <div className="bg-white dark:bg-slate-700 relative flex flex-wrap py-6 rounded shadow-md">
@@ -30,7 +35,9 @@ const Contact = () => {
                             <h2 className="title-font font-semibold text-gray-900 dark:text-white tracking-widest text-xs">
                                 EMAIL
                             </h2>
-                            <a className="text-indigo-500 leading-relaxed">example@email.com</a>
+                            <a href="mailto:" className="text-indigo-500 leading-relaxed">
+                                example@email.com
+                            </a>
                             <h2 className="title-font font-semibold text-gray-900 dark:text-white tracking-widest text-xs mt-4">
                                 PHONE
                             </h2>

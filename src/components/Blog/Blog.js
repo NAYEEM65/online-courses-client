@@ -4,6 +4,11 @@ import { NavLink } from 'react-router-dom';
 const Blog = () => {
     return (
         <section className="text-gray-600 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 body-font">
+            <div className="text-center w-[300px] mx-auto">
+                <h2 className="text-3xl p-2 ml-2  py-5 font-bold text-slate-900 border-b-2 mb-5  border-slate-800 dark:border-slate-300 dark:text-slate-200">
+                    Our Blogs
+                </h2>
+            </div>
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap -m-4">
                     <div className="p-4 md:w-1/3">
@@ -14,11 +19,8 @@ const Blog = () => {
                                 alt="blog"
                             />
                             <div className="p-6">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 dark:text-slate-200 mb-1">
-                                    CATEGORY
-                                </h2>
                                 <h1 className="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">
-                                    The Catalyzer
+                                    what is `cors`?
                                 </h1>
                                 <p className="leading-relaxed mb-3">
                                     Photo booth fam kinfolk cold-pressed sriracha leggings jianbing
