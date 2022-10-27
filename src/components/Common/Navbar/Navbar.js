@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { VscMenu, VscChromeClose } from 'react-icons/vsc';
-import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../context/Auth/AuthProvider';
 import Loader from '../Loader/Loader';
 import { BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
+import logo from '../../../assets/logo.png';
 
 const Navbar = () => {
     const [isMenu, setIsMenu] = useState(false);
@@ -61,13 +62,8 @@ const Navbar = () => {
             {isLoading && <Loader />}
             <div className="bg-indigo-600 dark:shadow-lg dark:backdrop-blur-md  dark:bg-gray-800/90 py-2 px-4">
                 <div className="flex justify-between items-center relative">
-                    <NavLink to="/">
-                        <h2 className="md:text-3xl text-2xl font-bold text-white">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                                Online
-                            </span>{' '}
-                            Academy
-                        </h2>
+                    <NavLink to="/" className="bg-white rounded-lg">
+                        <img src={logo} alt="logo" className="w-[80px]" />
                     </NavLink>
                     {/* desktop menu */}
                     <ul className="md:flex hidden justify-center items-center gap-3 text-white">
@@ -142,8 +138,12 @@ const Navbar = () => {
                             </div>
                         ) : (
                             <span className="flex justify-between items-center gap-3">
-                                <Link to="/login">Login</Link>
-                                <Link to="/register">Register</Link>
+                                <NavLink to="/login" className={activeClass}>
+                                    Login
+                                </NavLink>
+                                <NavLink to="/register" className={activeClass}>
+                                    Register
+                                </NavLink>
                             </span>
                         )}
                         <li>
@@ -238,8 +238,12 @@ const Navbar = () => {
                                 </div>
                             ) : (
                                 <span className="flex justify-between items-center gap-3">
-                                    <Link to="/login">Login</Link>
-                                    <Link to="/register">Register</Link>
+                                    <NavLink to="/login" className={activeClass}>
+                                        Login
+                                    </NavLink>
+                                    <NavLink to="/register" className={activeClass}>
+                                        Register
+                                    </NavLink>
                                 </span>
                             )}
                         </ul>

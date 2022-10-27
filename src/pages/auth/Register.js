@@ -48,7 +48,7 @@ const Register = () => {
                         toast.success('Registration successful');
                         handleEmailVerification();
                         toast.success('Please verify your email address.');
-                        navigate('/pofile');
+                        navigate('/user');
                     });
                 })
                 .catch((error) => {

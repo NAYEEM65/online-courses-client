@@ -140,7 +140,7 @@ const Course = () => {
                                 className="text-white w-full bg-indigo-500 hover:bg-indigo-600 px-3 py-2 rounded"
                                 onClick={toPdf}
                             >
-                                Dounload pdf
+                                Download pdf
                             </button>
                         )}
                     </ReactToPdf>
