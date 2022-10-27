@@ -169,18 +169,33 @@ const Navbar = () => {
                         )}
                     </div>
                     {isMenu && (
-                        <ul className="md:hidden flex flex-col justify-center items-center gap-3 absolute top-12 py-4 right-0 text-white bg-slate-500 w-full">
+                        <ul className="md:hidden flex flex-col justify-center items-center gap-3 absolute top-12 py-4 right-0 text-white bg-slate-500 w-full z-[999]">
                             <li>Home</li>
                             <li>Courses</li>
                             <li>About</li>
                             <li>Contact</li>
-                            <li>
-                                <Link to="/login">
-                                    <span className="bg-blue-500 dark:bg-slate-700 hover:bg-blue-600 py-2 px-3 rounded">
-                                        Login
+                            {user?.uid ? (
+                                <div className="flex justify-between items-center flex-col gap-3">
+                                    <span>
+                                        <img
+                                            src={user?.photoURL}
+                                            className="h-8 w-8 rounded-full"
+                                            alt={user?.displayName}
+                                        />
                                     </span>
-                                </Link>
-                            </li>
+                                    <button
+                                        className="bg-blue-500 dark:bg-sky-800 dark:hover:bg-sky-900 hover:bg-blue-600 py-2 px-3 rounded"
+                                        onClick={handleLogOut}
+                                    >
+                                        Log out
+                                    </button>
+                                </div>
+                            ) : (
+                                <span className="flex justify-between items-center gap-3">
+                                    <Link to="/login">Login</Link>
+                                    <Link to="/register">Register</Link>
+                                </span>
+                            )}
                             <li>
                                 <button onClick={toggleTheme}>
                                     {theme === 'dark' ? (
