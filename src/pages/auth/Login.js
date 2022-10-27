@@ -90,7 +90,7 @@ const Login = () => {
                                 placeholder="Email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="rounded bg-slate-200 border-none"
+                                className="rounded bg-slate-100 border-none"
                             />
                         </div>
                         <div className="w-full inline-grid relative">
@@ -100,7 +100,7 @@ const Login = () => {
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="rounded bg-slate-200 border-none"
+                                className="rounded bg-slate-100 border-none"
                             />
                             {isShowPass ? (
                                 <AiOutlineEyeInvisible

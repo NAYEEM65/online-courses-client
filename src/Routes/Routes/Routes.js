@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch(`http://localhost:5000/courses`),
+                loader: () => fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses`),
             },
             {
                 path: '/courses',
@@ -36,7 +36,7 @@ export const routes = createBrowserRouter([
                         <Courses />
                     </PrivateRoute>
                 ),
-                loader: () => fetch(`http://localhost:5000/courses`),
+                loader: () => fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses`),
             },
             {
                 path: '/course/:id',
@@ -46,7 +46,8 @@ export const routes = createBrowserRouter([
                     </PrivateRoute>
                 ),
 
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) =>
+                    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses/${params.id}`),
             },
             {
                 path: '/about',
@@ -83,13 +84,16 @@ export const routes = createBrowserRouter([
                         <CheckOut />
                     </PrivateRoute>
                 ),
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) =>
+                    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses/${params.id}`),
             },
             {
                 path: '/category/:id',
                 element: <Category />,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/courses-categories/${params.id}`),
+                    fetch(
+                        `${process.env.REACT_APP_SERVER_BASE_URL}/courses-categories/${params.id}`,
+                    ),
             },
         ],
     },

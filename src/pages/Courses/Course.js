@@ -15,7 +15,7 @@ const Course = () => {
         format: [4, 2],
     };
     return (
-        <div className="flex md:flex-row flex-col justify-between bg-slate-200 dark:bg-slate-700 md:items-center gap-3">
+        <div className="flex md:flex-row flex-col justify-between bg-slate-100 dark:bg-slate-700 md:items-center gap-3">
             <div className=" md:w-[25%] w-full border-r-2 border-gray-300 md:h-[85vh]">
                 <div ref={ref}>
                     <h2 className="text-center text-5xl font-bold border-b-2 mb-1 border-slate-700 dark:border-slate-200 text-slate-800 dark:text-slate-200">
@@ -158,7 +158,7 @@ const Course = () => {
                 </div>
             </div>
 
-            <div className="bg-slate-200 dark:bg-slate-700 md:w-[55%] w-full">
+            <div className="bg-slate-100 dark:bg-slate-700 md:w-[55%] w-full">
                 <div className="p-4 md:w-full">
                     <div className="h-full border-2 border-gray-200 dark:text-slate-200 border-opacity-60 rounded-lg overflow-hidden">
                         <img

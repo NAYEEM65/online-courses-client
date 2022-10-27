@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Faq = () => {
     return (
-        <div className="bg-slate-200 dark:bg-slate-700">
+        <div className="bg-slate-100 dark:bg-slate-700">
             <section className="text-gray-700 dark:text-slate-200">
                 <div className="container px-5 py-24 mx-auto">
                     <div className="text-center mb-20">

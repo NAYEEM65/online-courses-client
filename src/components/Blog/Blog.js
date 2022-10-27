@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Blog = () => {
     return (
-        <section className="text-gray-600 body-font">
+        <section className="text-gray-600 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-wrap -m-4">
                     <div className="p-4 md:w-1/3">
@@ -14,10 +14,10 @@ const Blog = () => {
                                 alt="blog"
                             />
                             <div className="p-6">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 dark:text-slate-200 mb-1">
                                     CATEGORY
                                 </h2>
-                                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                                <h1 className="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">
                                     The Catalyzer
                                 </h1>
                                 <p className="leading-relaxed mb-3">
@@ -40,7 +40,7 @@ const Blog = () => {
                                             <path d="M12 5l7 7-7 7"></path>
                                         </svg>
                                     </NavLink>
-                                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <span className="text-gray-400 dark:text-slate-200 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"
@@ -55,7 +55,7 @@ const Blog = () => {
                                         </svg>
                                         1.2K
                                     </span>
-                                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                                    <span className="text-gray-400 dark:text-slate-200 inline-flex items-center leading-none text-sm">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"
@@ -81,10 +81,10 @@ const Blog = () => {
                                 alt="blog"
                             />
                             <div className="p-6">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 dark:text-slate-200 mb-1">
                                     CATEGORY
                                 </h2>
-                                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                                <h1 className="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">
                                     The 400 Blows
                                 </h1>
                                 <p className="leading-relaxed mb-3">
@@ -107,7 +107,7 @@ const Blog = () => {
                                             <path d="M12 5l7 7-7 7"></path>
                                         </svg>
                                     </NavLink>
-                                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <span className="text-gray-400 dark:text-slate-200 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"
@@ -122,7 +122,7 @@ const Blog = () => {
                                         </svg>
                                         1.2K
                                     </span>
-                                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                                    <span className="text-gray-400 dark:text-slate-200 inline-flex items-center leading-none text-sm">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"
@@ -148,10 +148,10 @@ const Blog = () => {
                                 alt="blog"
                             />
                             <div className="p-6">
-                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
+                                <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 dark:text-slate-200 mb-1">
                                     CATEGORY
                                 </h2>
-                                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                                <h1 className="title-font text-lg font-medium text-gray-900 dark:text-white mb-3">
                                     Shooting Stars
                                 </h1>
                                 <p className="leading-relaxed mb-3">
@@ -174,7 +174,7 @@ const Blog = () => {
                                             <path d="M12 5l7 7-7 7"></path>
                                         </svg>
                                     </NavLink>
-                                    <span className="text-gray-400 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                                    <span className="text-gray-400 dark:text-slate-200 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"
@@ -189,7 +189,7 @@ const Blog = () => {
                                         </svg>
                                         1.2K
                                     </span>
-                                    <span className="text-gray-400 inline-flex items-center leading-none text-sm">
+                                    <span className="text-gray-400 dark:text-slate-200 inline-flex items-center leading-none text-sm">
                                         <svg
                                             className="w-4 h-4 mr-1"
                                             stroke="currentColor"

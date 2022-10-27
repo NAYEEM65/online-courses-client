@@ -6,7 +6,7 @@ import ReactStars from 'react-rating-stars-component';
 const Courses = () => {
     const courses = useLoaderData();
     return (
-        <div className="flex justify-between bg-slate-200 dark:bg-slate-700 dark:text-white gap-3 ">
+        <div className="flex justify-between bg-slate-100 dark:bg-slate-700 dark:text-white gap-3 ">
             <div className="md:w-[75%] w-full">
                 <section className="text-gray-600 dark:text-white body-font">
                     <div className="container px-5 p-5 mx-auto">
