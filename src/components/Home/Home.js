@@ -62,7 +62,7 @@ const Home = () => {
                                                     to={`/course/${course.id}`}
                                                     className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
                                                 >
-                                                    Learn More
+                                                    Details
                                                     <svg
                                                         className="w-4 h-4 ml-2"
                                                         viewBox="0 0 24 24"

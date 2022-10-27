@@ -188,7 +188,7 @@ const Footer = () => {
                             />
                         </div>
                         <button className="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                            Button
+                            Subscribe
                         </button>
                         <p className="text-gray-500 dark:text-gray-200 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">
                             Bitters chicharrones fanny pack

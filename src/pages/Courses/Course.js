@@ -9,11 +9,7 @@ import ReactToPdf from 'react-to-pdf';
 const Course = () => {
     const selectedCourses = useLoaderData();
     const ref = createRef();
-    const options = {
-        orientation: 'landscape',
-        unit: 'in',
-        format: [4, 2],
-    };
+
     return (
         <div className="flex md:flex-row flex-col justify-between bg-slate-100 dark:bg-slate-700 md:items-center gap-3">
             <div className=" md:w-[25%] w-full border-r-2 border-gray-300 md:h-[85vh]">
@@ -138,14 +134,7 @@ const Course = () => {
                     </div>
                 </div>
                 <div className="mx-2">
-                    <ReactToPdf
-                        targetRef={ref}
-                        filename={`${selectedCourses.courseTitle}.pdf`}
-                        x={0.5}
-                        y={0.5}
-                        scale={0.8}
-                        options={options}
-                    >
+                    <ReactToPdf targetRef={ref} filename={`${selectedCourses.courseTitle}.pdf`}>
                         {({ toPdf }) => (
                             <button
                                 className="text-white w-full bg-indigo-500 hover:bg-indigo-600 px-3 py-2 rounded"
