@@ -49,7 +49,7 @@ const Login = () => {
         providerLogin(GoogleProvider)
             .then(() => {
                 toast.success('Login success');
-                navigate('/');
+                navigate(from, { replace: true });
                 setIsLoading(false);
             })
             .catch((error) => {
@@ -63,7 +63,7 @@ const Login = () => {
         providerLogin(GithubProvider)
             .then(() => {
                 toast.success('Login success');
-                navigate('/');
+                navigate(from, { replace: true });
                 setIsLoading(false);
             })
             .catch((error) => {
