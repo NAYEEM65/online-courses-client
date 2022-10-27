@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import accessImage from '../../assets/access-account.svg';
+import accessImage from '../../assets/undraw_access_account_re_8spm (1).svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 import { useContext } from 'react';
@@ -23,7 +23,6 @@ const Register = () => {
     const navigate = useNavigate();
     const handleConfirmPassShow = () => {
         setIsConfirmPassShow(!isConfirmPassShow);
-        toast.success('password');
     };
     const registerUser = (e) => {
         e.preventDefault();
@@ -43,14 +42,13 @@ const Register = () => {
             setIsLoading(true);
             createUser(email, password)
                 .then(() => {
-                    handleUpdateUserProfile(fullName, photoURL).then(() => {
+                    updateUserProfile({ displayName: fullName, photoURL }).then(() => {
                         // Profile updated!
                         setIsLoading(false);
                         toast.success('Registration successful');
                         handleEmailVerification();
                         toast.success('Please verify your email address.');
-                        setIsLoading(false);
-                        navigate('/login');
+                        navigate('/pofile');
                     });
                 })
                 .catch((error) => {
@@ -60,19 +58,11 @@ const Register = () => {
                 });
         }
     };
-    const handleUpdateUserProfile = (name, photoURL) => {
-        const profile = {
-            displayName: name,
-            photoURL: photoURL,
-        };
-
-        updateUserProfile(profile)
-            .then(() => {})
-            .catch((error) => console.error(error));
-    };
 
     const handleEmailVerification = () => {
-        verifyEmail().then(() => {});
+        verifyEmail().then(() => {
+            console.log('please verify email');
+        });
     };
 
     return (

@@ -14,6 +14,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import CheckOut from '../../pages/CheckOut/CheckOut';
 import Category from '../../pages/Category/Category';
 import UserDetails from '../../pages/auth/UserDetails';
+import LoggedInRoute from '../PrivateRoute/LoggedInRoute';
 
 export const routes = createBrowserRouter([
     {
@@ -59,7 +60,11 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/login',
-                element: <Login />,
+                element: (
+                    <LoggedInRoute>
+                        <Login />
+                    </LoggedInRoute>
+                ),
             },
             {
                 path: '/contact',
@@ -67,11 +72,19 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/register',
-                element: <Register />,
+                element: (
+                    <LoggedInRoute>
+                        <Register />
+                    </LoggedInRoute>
+                ),
             },
             {
                 path: '/reset',
-                element: <Reset />,
+                element: (
+                    <LoggedInRoute>
+                        <Reset />
+                    </LoggedInRoute>
+                ),
             },
             {
                 path: '/checkout/:id',

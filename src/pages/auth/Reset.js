@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import LoginImage from '../../assets/access-account.svg';
+import LoginImage from '../../assets/forgot_password_re_hxwm.svg';
 import Loader from '../../components/Common/Loader/Loader';
 
 const Reset = () => {

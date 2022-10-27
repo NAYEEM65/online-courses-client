@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import LoginImage from '../../assets/access-account.svg';
+import LoginImage from '../../assets/undraw_helpful_sign_re_8ms5.svg';
 import { AiOutlineEyeInvisible, AiOutlineEye } from 'react-icons/ai';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
