@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 const RightSideNav = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/courses-categories')
+        fetch('https://online-course-server-ten.vercel.app/courses-categories')
             .then((res) => res.json())
             .then((data) => setCategories(data));
     }, []);

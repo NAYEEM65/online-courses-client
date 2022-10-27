@@ -28,7 +28,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: () => fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses`),
+                loader: () => fetch(`https://online-course-server-ten.vercel.app/courses`),
             },
             {
                 path: '/courses',
@@ -37,7 +37,7 @@ export const routes = createBrowserRouter([
                         <Courses />
                     </PrivateRoute>
                 ),
-                loader: () => fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses`),
+                loader: () => fetch(`https://online-course-server-ten.vercel.app/courses`),
             },
             {
                 path: '/course/:id',
@@ -48,7 +48,7 @@ export const routes = createBrowserRouter([
                 ),
 
                 loader: ({ params }) =>
-                    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses/${params.id}`),
+                    fetch(`https://online-course-server-ten.vercel.app/courses/${params.id}`),
             },
             {
                 path: '/blog',
@@ -94,14 +94,14 @@ export const routes = createBrowserRouter([
                     </PrivateRoute>
                 ),
                 loader: ({ params }) =>
-                    fetch(`${process.env.REACT_APP_SERVER_BASE_URL}/courses/${params.id}`),
+                    fetch(`https://online-course-server-ten.vercel.app/courses/${params.id}`),
             },
             {
                 path: '/category/:id',
                 element: <Category />,
                 loader: ({ params }) =>
                     fetch(
-                        `${process.env.REACT_APP_SERVER_BASE_URL}/courses-categories/${params.id}`,
+                        `https://online-course-server-ten.vercel.app/courses-categories/${params.id}`,
                     ),
             },
             {
